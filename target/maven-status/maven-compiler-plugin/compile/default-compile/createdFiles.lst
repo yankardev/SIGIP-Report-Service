@@ -1,0 +1,10 @@
+pe\edu\cibertec\sigip\reportservice\controller\ReportController.class
+pe\edu\cibertec\sigip\reportservice\client\InsumoCritico.class
+pe\edu\cibertec\sigip\reportservice\client\ResumenVentas.class
+pe\edu\cibertec\sigip\reportservice\service\ReporteService.class
+pe\edu\cibertec\sigip\reportservice\client\InventoryServiceClient$Fallback.class
+pe\edu\cibertec\sigip\reportservice\dto\DashboardResponse.class
+pe\edu\cibertec\sigip\reportservice\client\InventoryServiceClient.class
+pe\edu\cibertec\sigip\reportservice\ReportServiceApplication.class
+pe\edu\cibertec\sigip\reportservice\client\SalesServiceClient.class
+pe\edu\cibertec\sigip\reportservice\client\SalesServiceClient$Fallback.class
