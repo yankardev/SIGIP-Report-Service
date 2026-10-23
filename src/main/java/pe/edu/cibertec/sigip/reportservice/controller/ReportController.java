@@ -17,28 +17,25 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1/reportes")
 @RequiredArgsConstructor
-@PreAuthorize("hasRole('ADMIN')")
 public class ReportController {
-
     private final ReporteService service;
 
     @GetMapping("/estado")
+    @PreAuthorize("hasAnyRole('ADMIN','VENTAS','OPERACIONES')")
     public Map<String, Object> estado() {
         return Map.of("servicio", "report-service", "estado", "OPERATIVO", "fecha", LocalDateTime.now());
     }
 
+    /** Resumen diario para orientar el trabajo de las áreas. */
     @GetMapping("/dashboard")
-    public DashboardResponse dashboard() {
-        return service.dashboard();
-    }
+    @PreAuthorize("hasAnyRole('ADMIN','VENTAS','OPERACIONES')")
+    public DashboardResponse dashboard() { return service.dashboard(); }
 
     @GetMapping("/ventas")
-    public ResumenVentas ventas() {
-        return service.ventas();
-    }
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResumenVentas ventas() { return service.ventas(); }
 
     @GetMapping("/inventario-critico")
-    public List<InsumoCritico> inventarioCritico() {
-        return service.inventarioCritico();
-    }
+    @PreAuthorize("hasAnyRole('ADMIN','OPERACIONES')")
+    public List<InsumoCritico> inventarioCritico() { return service.inventarioCritico(); }
 }
